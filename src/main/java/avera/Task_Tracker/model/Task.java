@@ -22,6 +22,12 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 
+    public  Task (String id, String description, String status){
+        this.id = id;
+        this.description = description;
+        this.status = status;
+    }
+
     public String getId() {
         return id;
     }
@@ -60,6 +66,13 @@ public class Task {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+
+    public void updateTask(String newDescription, String newStatus) {
+        this.description = newDescription;
+        this.status = newStatus;
+        this.updatedAt = LocalDateTime.now();
     }
 
 
