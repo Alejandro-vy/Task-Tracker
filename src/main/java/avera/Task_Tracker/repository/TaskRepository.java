@@ -14,13 +14,11 @@ import java.util.List;
 
 public class TaskRepository {
 
-    private final Path filePath = Paths.get("tasks.json");
+    private final Path filePath;
 
     // Inicializa el archivo JSON si no existe
-    public TaskRepository() {
-        if (!Files.exists(filePath)) {
-            createEmptyJson();
-        }
+    public TaskRepository(String filePath) {
+        this.filePath = Paths.get(filePath);
     }
 
     // Lee las tareas del archivo JSON
