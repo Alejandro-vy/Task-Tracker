@@ -29,17 +29,31 @@ public class Main {
                     System.out.println("Tarea agregada.");
                     break;
                 case "update":
-                    // Implementa lógica para actualizar
+                    String id = parts.length > 1 ? parts[1] : "";
+
+                    String newDescription = parts.length > 2 ? parts[2] : "";
+
+                    String newStatus = parts.length > 3 ? parts[3] : "";
+
+                    taskService.updateTask(id,newDescription,newStatus);
+
+                    System.out.println("Tarea actualizada. ");
                     break;
                 case "delete":
-                    // Implementa lógica para eliminar
+
+                    String idDelete = parts.length > 1 ? parts[1] : "";
+
+
+                    taskService.deleteTask(idDelete);
                     break;
                 case "list":
                     List<Task> tasks = taskService.getTaskList();
                     tasks.forEach(task -> System.out.println(task.getDescription()));
                     break;
                 case "list-todo":
-                    // Lógica para listar tareas no completadas
+
+                    taskService.getTaskListStatus("todo");
+
                     break;
                 case "exit":
                     System.out.println("Saliendo...");
